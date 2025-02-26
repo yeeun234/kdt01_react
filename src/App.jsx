@@ -2,7 +2,9 @@
 import HelloDate from "./01/HelloDate"
 import { IoHome } from "react-icons/io5";
 import { GrAndroid } from "react-icons/gr";
-import MyClock from "./02/Myclock";
+// import MyClock from "./02/Myclock";
+import MyDiv1 from "./03/MyDiv1";
+
 
 
 function App() {
@@ -18,7 +20,8 @@ function App() {
       <main className="w-full flex-grow text-center
       flex flex-col justify-center items-center overflow-y-auto">
        {/* <Hello/> */}
-        <MyClock/>
+        {/* <MyClock/> */}
+        <MyDiv1/>
       </main>
       <footer className="w-full h-10 bg-pink-100 flex justify-center items-center px-10">
         <h1 className="font-bold text-[6px] text-gray-600">[K-Digital 부산대 25-1회차] AI 데이터 분석 풀스택 웹 개발자 양성과정</h1>
