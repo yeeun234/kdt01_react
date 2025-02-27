@@ -4,12 +4,12 @@ import { useState } from "react";
 //1.usestate Hook import
 export default function MyListItem({ title, imgUrl, content ,show}) {
     let cnt = 0;
-     //2. state 변수 선언 [변수명, 변수를 변경할 함수명] useState(변수초기값)
+     //2. state 변수 선언 [변수명, 변수를 변경할 함수명] useState(변수초기값) 
      const [stcnt, setCnt] = useState(0);
     const handleclick = () => {
 
         cnt = cnt + 1;
-        //3. state 변수 변경
+        //3. state 변수 변경 (rnedl dlfjgrp godigksmsdldb . private classs의field값을바꾸려면 함수를써서해야하는것처럼. 내부메소드를 이용해 바꾸어야함. stcnt+1;으로 외부에서 못바꿈.외부에서 접근불가 ㅇ그러니 const.)
         setCnt(stcnt +1);
 
         console.log(cnt);
