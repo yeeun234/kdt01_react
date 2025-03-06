@@ -10,8 +10,15 @@ export default function FoodMain() {
     const handle = (c) => {
         console.log(c)
         
-        let getarray = fooddata.filter(item => item["운영주체 분류"].replaceAll(' ','')===c);
-        console.log(getarray);
+        let getarrays = fooddata.filter(item => item["운영주체 분류"].replaceAll(' ','')===c);
+        console.log(getarrays);
+
+        const items = getarrays.map(i => <FoodCard
+            key={i}
+            obj={i}
+            /> );
+
+        setTags(items);
 
     };
     const [tags, setTags] = useState([]);
@@ -27,10 +34,10 @@ export default function FoodMain() {
 
     return (
         <>
-            <div className='flex m-10 flex-row justify-center items-center'>
+            <div className='flex h/1/6 m-10 flex-row justify-center items-center'>
                 {bts}
             </div>
-            <div className='w-11/12 h-full  mt-10 grid grid-cols-1 lg:grid-cols-2 gap-4'>
+            <div className='w-11/12 h-5/6  mt-3 grid grid-cols-1 lg:grid-cols-2 gap-4'>
                 {tags}
             </div>
         </>
@@ -46,3 +53,5 @@ export default function FoodMain() {
 // 예전에 만들어둔 버튼태그 사용하기.  onClick={()=>handle(item)} 매개변수로 함수를쓰고 인자를 전달할때는 콜백함수형태로. 
 
 //필터로 해당 운영주체에 속한 어레이 뽑아내기
+
+//푸드메인의 각 div값의 높이를 조절하여 버튼과 태그즈(푸트카드)가 범위밖으로 안날라가게하기
