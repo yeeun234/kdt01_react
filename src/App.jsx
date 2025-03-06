@@ -23,7 +23,7 @@ function App() {
         <FoodMain></FoodMain>
       </main>
       <footer className="w-full min-h-20 bg-pink-100 flex justify-center  text-md font-bold items-center px-10">
-        <h1 className="font-bold text-[6px] text-gray-600">[K-Digital 부산대 25-1회차] AI 데이터 분석 풀스택 웹 개발자 양성과정</h1>
+        <h1 className="font-bold text-[12px] text-gray-600">[K-Digital 부산대 25-1회차] AI 데이터 분석 풀스택 웹 개발자 양성과정</h1>
 
       </footer>
     </div>
