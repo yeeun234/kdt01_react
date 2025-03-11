@@ -1,6 +1,23 @@
+import { useState, useEffect } from "react";
+import TailButtonLine from "../UI/TailButtonLine";
 
-function MyClockTime () {
-    const clock = new Date().toLocaleTimeString();
+function MyClockTime() {
+    const [currentTime, setCurrentTime] = useState(new Date());
+    
+
+    const handleClick = () => {
+        setCurrentTime(new Date());
+    }
+
+    useEffect(()=>{
+        let tm = setInterval(()=>{
+            setCurrentTime(new Date())
+        },1000);
+
+        return
+            clearInterval(tm);
+    },['']);
+    
     const fontStyle = {
         fontWeight: 'bold',
         fontSize: '20px',
@@ -8,7 +25,8 @@ function MyClockTime () {
     }
     return(
         <div>
-            <h1>현재시각은 <span style={fontStyle}>{clock}</span> 입니다.</h1>
+            <h1>현재시각은 <span style={fontStyle}>{currentTime.toLocaleTimeString()}</span> 입니다.</h1>
+            <TailButtonLine bgColor="orange" html="버튼" onClick={handleClick}></TailButtonLine>
         </div>
     )
 
