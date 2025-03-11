@@ -2,12 +2,14 @@
 import HelloDate from "./01/HelloDate"
 import { IoHome } from "react-icons/io5";
 import { GrAndroid } from "react-icons/gr";
+import MyEffect from "./08/MyEffect";
 // import MyClock from "./02/Myclock";
 // import MyDiv1 from "./03/MyDiv1";
 // import MyList from "./04/MyList";
 // import Lotto from "./05/Lotto";
 // import FoodMain from "./06/FoodMain";
-import MyToggle from "./07/MyToggle";
+// import MyToggle from "./07/MyToggle";
+import MyEffect from "./08/MyEffect";
 
 function App() {
 
@@ -22,7 +24,8 @@ function App() {
       <main className="w-full  flex-grow text-center
       flex flex-col justify-center items-center overflow-y-auto">
         {/* <FoodMain></FoodMain> */}
-        <MyToggle></MyToggle>
+        {/* <MyToggle></MyToggle> */}
+        <MyEffect></MyEffect>
       </main>
       <footer className="w-full min-h-20 bg-pink-100 flex justify-center  text-md font-bold items-center px-10">
         <h1 className="font-bold text-[12px] text-gray-600">[K-Digital 부산대 25-1회차] AI 데이터 분석 풀스택 웹 개발자 양성과정</h1>

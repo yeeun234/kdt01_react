@@ -4,8 +4,8 @@ import { useState } from "react"
 
 export default function MyToggleBox({html}) {
     const bg700 = {
-        "blue" :"bg-blue-700",
-        "orange" : "bg-orange-700",
+        "blue" :"bg-blue-500",
+        "orange" : "bg-orange-500",
     }
     const [bg,setBg]=useState(false);
     const Click = ()=>{
