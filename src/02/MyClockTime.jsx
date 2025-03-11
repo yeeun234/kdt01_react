@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import TailButtonLine from "../UI/TailButtonLine";
-
+import styles from "./MyClockTime.module.css"
 function MyClockTime() {
     const [currentTime, setCurrentTime] = useState(new Date());
     
@@ -14,8 +14,9 @@ function MyClockTime() {
             setCurrentTime(new Date())
         },1000);
 
-        return
+        return () =>{
             clearInterval(tm);
+        }
     },['']);
     
     const fontStyle = {
@@ -24,7 +25,7 @@ function MyClockTime() {
        
     }
     return(
-        <div>
+        <div className={styles.pst}>
             <h1>현재시각은 <span style={fontStyle}>{currentTime.toLocaleTimeString()}</span> 입니다.</h1>
             <TailButtonLine bgColor="orange" html="버튼" onClick={handleClick}></TailButtonLine>
         </div>
