@@ -4,6 +4,7 @@ import { FaArrowUp, FaArrowDown } from "react-icons/fa6";
 export default function BoxOffice() {
   //State variables
   const [tags, setTags] = useState([]);
+  const [info, setInfo] = useState('');
 
  //어제날짜가져오기 
  const getYesterday = () => {
@@ -23,6 +24,12 @@ export default function BoxOffice() {
   return (year + '-' + month + '-' + day);
 }
 
+//겟패치 변수 바깥에 있어도 되는 이유 = 겟패치에서 맵을 생성할때 자동으로 객체를 인수로 전달해줌. 
+//유즈스테이트를 이용하여 클릭할때마다 인포가 만들어지게 해야함. 
+const handleclick = (item) => {
+  console.log(item);
+  setInfo([`| ${item.movieNm} | ${item.openDt} 개봉 | ${item.rankOldAndNew} |`]);
+};
 
   //fetch the daily boxoffice data
   const getFetchData = async () => {
@@ -40,7 +47,9 @@ export default function BoxOffice() {
 
     let tm = boxList.map(item => 
                                 //맵의 리턴값은 하나여야하니 tr 태그로 감싸주기 , 키값은 tr태그 안에 속성으로 넣어 html 에서 안보이게 하기.
-                                <tr key={item.movieCd}  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <tr key={item.movieCd}  
+                                onClick={()=>handleclick(item)} //무슨영화인지 객체를 클릭이벤트 함수의 인수로 전달해야함
+                                className="cursor-pointer bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td className="w-4 p-4">
                                   
                                 </td>
@@ -72,6 +81,8 @@ export default function BoxOffice() {
         );
 
     setTags(tm);
+    
+    
   }
 
 
@@ -81,11 +92,14 @@ export default function BoxOffice() {
     getFetchData();
 
   }, []);
+
+  
+
   return (
     <div>
      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
+            <tr >
               <td className="p-4">              
               </td>
               <td className="px-6 py-3">
@@ -114,9 +128,12 @@ export default function BoxOffice() {
           <tbody>
             {tags}
           </tbody>
-          <tbody>
-            클릭하면 여기에 정보가 나오도록 하려면 ... tr에 클릭이벤트 넣고 유즈스테이트 를 사용해서 클릭할때마다 변경되게하기.
-          </tbody>
+          <tfoot className="w-full  text-md text-gray-700 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-400">
+            <tr><td colSpan="8" className =" w-full h-20 text-center font-bold text-1xl">
+            {/* 클릭하면 여기에 정보가 나오도록 하려면 ... tr에 클릭이벤트 넣고 유즈스테이트 를 사용해서 클릭할때마다 변경되게하기. */}
+            {info}
+            </td></tr>
+          </tfoot>
         </table>
         
     </div>
