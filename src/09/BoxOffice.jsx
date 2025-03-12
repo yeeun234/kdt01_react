@@ -50,16 +50,16 @@ export default function BoxOffice() {
                                 {item.movieNm}
                                 </td>
                                 <td className="px-6 py-4">
-                                {item.salesAmt}
+                                {parseInt(item.salesAmt).toLocaleString()}
                                 </td>
                                 <td className="px-6 py-4">
-                                {item.audiCnt}
+                                {parseInt(item.audiCnt).toLocaleString()}
                                 </td>
                                 <td className="px-6 py-4">
-                                  {item.salesAcc}
+                                {parseInt(item.salesAcc).toLocaleString()}              
                                 </td>
                                 <td className="px-6 py-4">
-                                  {item.audiAcc}
+                                {parseInt(item.audiAcc).toLocaleString()}      
                                 </td>
                                 <td className="px-6 py-4">
                                   {item.rankInten}
