@@ -47,7 +47,7 @@ export default function BoxOffice() {
                                 <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {item.rank}
                                 </td>
-                                <td className="px-6 py-4 text-right">
+                                <td className="px-6 py-4 text-left">
                                 {item.movieNm}
                                 </td>
                                 <td className="px-6 py-4 text-right">
@@ -113,6 +113,9 @@ export default function BoxOffice() {
           </thead>
           <tbody>
             {tags}
+          </tbody>
+          <tbody>
+            클릭하면 여기에 정보가 나오도록 하려면 ... tr에 클릭이벤트 넣고 유즈스테이트 를 사용해서 클릭할때마다 변경되게하기.
           </tbody>
         </table>
         
