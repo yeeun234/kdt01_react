@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { FaArrowUp, FaArrowDown } from "react-icons/fa6"; 
 
 export default function BoxOffice() {
   //State variables
@@ -28,7 +29,7 @@ export default function BoxOffice() {
     const mvApiKey = import.meta.env.VITE_APP_MY_KEY;
     let dt = getYesterday().replaceAll('-', '');
     let url = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?'
-    url = `${url}key=${mvApiKey}&targetDt=${dt}`;
+    url = `${url}key=${mvApiKey}&targetDt=${20250305}`;//dt로 하면 순위 증감률이 안나와서 다른날짜로 변경.
     console.log(url)
 
     const resp = await fetch(url);
@@ -46,23 +47,25 @@ export default function BoxOffice() {
                                 <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                 {item.rank}
                                 </td>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 text-right">
                                 {item.movieNm}
                                 </td>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 text-right">
                                 {parseInt(item.salesAmt).toLocaleString()}
                                 </td>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 text-right">
                                 {parseInt(item.audiCnt).toLocaleString()}
                                 </td>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 text-right">
                                 {parseInt(item.salesAcc).toLocaleString()}              
                                 </td>
-                                <td className="px-6 py-4">
+                                <td className="px-6 py-4 text-right">
                                 {parseInt(item.audiAcc).toLocaleString()}      
                                 </td>
-                                <td className="px-6 py-4">
-                                  {item.rankInten}
+                                <td className="px-6 py-4 text-center inline-flex justify-center items-center"  >
+                                { parseInt(item.rankInten) > 0 ? <span className="text-red-600"><FaArrowUp /></span> 
+                                          : parseInt(item.rankInten) < 0 ? <span className="text-blue-600"><FaArrowDown /></span> : ''}
+                                  {item.rankInten == 0 ? '-' : Math.abs(item.rankInten)} 
                                 </td>
                               </tr>  
                               
