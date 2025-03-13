@@ -1,6 +1,6 @@
 import TailButtonLine from "../UI/TailButtonLine";
 import { useState ,useEffect, use } from "react";
-
+import TrafficNav from "./TrafficNav";
 
 export default function Traffic() {
     //패치된 전체 데이터
@@ -9,6 +9,8 @@ export default function Traffic() {
     const [c1, setC1] =useState([]);
     //대분류 클릭하고 나올 데이터를 위해서 선택된 대분류데이터를 알아야함
     const [selC1,setSelC1]=useState([]);
+
+    let tags 
 
     //전체 데이터 패치
     const getFetchData = async()=>{
@@ -45,10 +47,36 @@ export default function Traffic() {
 
         //tm = [...new Set(tm)];으로 해도 됨
         console.log(tm);
+
+        setC1(tm);
+
       },[tdata]);
+
+      const handle = (c) => {
+        console.log(c)
+        
+        // let getarrays = c1.filter(item => item[""].replaceAll(' ','')===c);
+        // console.log(getarrays);
+
+        // const items = getarrays.map(i => <TrafficNav
+        //     key={i}
+        //     obj={i}
+        //     /> );
+
+        // setSelC1(items);
+
+    };
+
+      const bts = c1.map((item => <TrafficNav
+        key={item}
+        color="blue"
+        html={item}
+        onClick={() => handle(item)}
+    />));
+
   return (
     <div>
-      <TailButtonLine html="ㄱ" bgColor="blue" />
+      {bts}
     </div>
   )
 }
