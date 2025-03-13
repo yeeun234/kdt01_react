@@ -1,22 +1,24 @@
-import React from 'react'
+import TailButtonLine from '../UI/TailButtonLine'
 
-export default function TrafficNav({html,color,onClick}) {
-    const boarderCo = {
-        "orange": "border-orange-300",
-        "blue": "border-blue-300",
-        "n": "bg-white-300",
-      }
-      const bgCo = {
-        "orange": "bg-orange-100",
-        "blue": "bg-blue-100",
-        "n": "bg-white",
-      }
+export default function TrafficNav({title,c,selc,setselc}) {
+    console.log("TrafficNav" , c)
+    if (c == undefined) return (<></>)
+
+    const bts = c.map((item => <TailButtonLine
+        key={item}
+        color={selc == item ? "orange" : "blue"}
+        html={item}
+        onClick={() => setselc(item)}
+    />));
 
     return (
-        <div className='flex   justify-center items-center '>
-            <button className={`p-2 m-1 border border-solid ${boarderCo[color]} ${bgCo[color]} rounded-md ${color !== "n" && "hover:font-bold"}`} onClick={onClick}>
-                {html}
-            </button>
+        <div className=' w-full flex '>
+            <div>
+            교통사고 {title}
+            </div>
+            <div className=' w-full flex items-center justify-between'>
+                {bts}
+            </div>
         </div> 
     )
 }
