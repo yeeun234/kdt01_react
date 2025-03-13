@@ -1,7 +1,7 @@
 import TailButtonLine from '../UI/TailButtonLine'
 
 export default function TrafficNav({title,c,selc,setselc}) {
-    console.log("TrafficNav" , c)
+    // console.log("TrafficNav" , c)
     if (c == undefined) return (<></>)
 
     const bts = c.map((item => <TailButtonLine
