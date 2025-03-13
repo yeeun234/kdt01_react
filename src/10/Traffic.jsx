@@ -34,7 +34,9 @@ export default function Traffic() {
     useEffect(()=>{
       if(tdata.length<=0) return; //맨첨에 초기화될땐 걸러서 콘솔에 안뜨게 하는 . 초깃값이 배열이니 필드사용가능.
         console.log("tdada : "+tdata); //tdata값이 없던 상태에서 위에 유즈이펙트가 겟패치함수 실행하여 안에 셋함수로 tdata값이 변경되고 , 그래서 유즈이펙트의 의존배열이 변경되어 재출력됨.
-    },[tdata]);
+        let tm = tdata.map(item => item["사고유형대분류"]); //오브젝트가 하나의 아이템
+        console.log(tm);
+      },[tdata]);
   return (
     <div>
       <TailButtonLine html="ㄱ" bgColor="blue" />
