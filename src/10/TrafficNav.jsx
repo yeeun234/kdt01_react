@@ -12,13 +12,15 @@ export default function TrafficNav({title,c,selc,setselc}) {
     />));
 
     return (
-        <div className='flex items-center justify-between'>
-            <div className=' font-bold text-2xl '>
-            교통사고 {title}
-            </div>
-            <div className=' flex items-center justify-between'>
-                {bts}
-            </div>
-        </div> 
+        
+            <div className='flex w-full items-center '>
+                <div className='  justify-start font-bold text-2xl pl-10 '>
+                교통사고 {title}
+                </div>
+                <div className=' flex-grow flex items-center justify-end pr-10 space-x-2'>
+                    {bts}
+                </div>
+            </div> 
+        
     )
 }
