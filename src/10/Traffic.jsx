@@ -7,6 +7,8 @@ export default function Traffic() {
     const [tdata,setTdata] =useState([]);
     //대분류 데이터
     const [c1, setC1] =useState([]);
+    //대분류 클릭하고 나올 데이터를 위해서 선택된 대분류데이터를 알아야함
+    const [selC1,setSelC1]=useState([]);
 
     //전체 데이터 패치
     const getFetchData = async()=>{
