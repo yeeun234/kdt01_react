@@ -73,7 +73,7 @@ export default function Traffic() {
 
   return (
     //전체에 대해 넓이를 안잡으면 안에 애들이 움직임
-    <div className="w-full"> 
+    <div className="w-full h-full flex flex-col  justify-start mt-5"> 
       {/* {c1 !== undefined && <TrafficNav title="대분류" category={c1} selc1={selC1} setselc1={setSelC1} />} */}
     
     
