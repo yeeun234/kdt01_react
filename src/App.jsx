@@ -6,7 +6,7 @@ import MyClock from "./02/MyClock";
 // import MyDiv1 from "./03/MyDiv1";
 // import MyList from "./04/MyList";
 // import Lotto from "./05/Lotto";
-// import FoodMain from "./06/FoodMain";
+import FoodMain from "./06/FoodMain";
 // import MyToggle from "./07/MyToggle";
 // import MyEffect from "./08/MyEffect";
 // import BoxOffice from "./09/BoxOffice";
