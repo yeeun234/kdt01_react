@@ -9,6 +9,11 @@ export default function Traffic() {
   const [c1, setC1] = useState();
   const [selC1, setSelC1] = useState(); //대분류 클릭하고 나올 데이터를 위해서 선택된 대분류데이터를 알아야함
 
+  //중분류 데이터
+  const [c2, setC2] = useState();
+  const [selC2, setSelC2] = useState(); //대분류 클릭하고 나올 데이터를 위해서 선택된 대분류데이터를 알아야함
+
+
   //전체 데이터 패치
   const getFetchData = async () => {
     const MyApiKey = import.meta.env.VITE_APP_API_KEY;
@@ -51,9 +56,18 @@ export default function Traffic() {
   }, [tdata]);
 
 
+  //중분류 나오게하기
   useEffect(() => {
     if (!selC1) return ;
     console.log("selC1", selC1);
+    //대분류가 변경될때마다 자동으로 중분류값에대한 함수실행 (대분류추출과 똑같이함)
+    //대분류 추출
+    let tm = tdata.filter(item => item["사고유형대분류"]==selC1).map(item => item["사고유형"]);
+    tm = new Set(tm);
+    tm = [...tm];
+    console.log(tm);
+
+    setC2(tm);
   }, [selC1]);
 
 
@@ -63,6 +77,7 @@ export default function Traffic() {
     
     
       { c1 !== undefined ?  <TrafficNav title="대분류"  c={c1} selc={selC1} setselc={setSelC1} /> :'' }
+      { c2 !== undefined ?  <TrafficNav title="중분류"  c={c2} selc={selC2} setselc={setSelC2} /> :'' }
       
     </div>
   )

@@ -6,17 +6,17 @@ export default function TrafficNav({title,c,selc,setselc}) {
 
     const bts = c.map((item => <TailButtonLine
         key={item}
-        color={selc == item ? "orange" : "blue"}
+        bgColor={selc == item ? "orange" : "blue"}
         html={item}
         onClick={() => setselc(item)}
     />));
 
     return (
-        <div className=' w-full flex '>
-            <div>
+        <div className='flex items-center justify-between'>
+            <div className=' font-bold text-2xl '>
             교통사고 {title}
             </div>
-            <div className=' w-full flex items-center justify-between'>
+            <div className=' flex items-center justify-between'>
                 {bts}
             </div>
         </div> 

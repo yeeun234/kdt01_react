@@ -14,7 +14,7 @@ export default function TailButtonLine({ html, bgColor, onClick }) {
   }
 
   return (
-    <div className='flex w-full h-full justify-center items-center '>
+    <div className='flex  h-full justify-center items-center '>
       <button className={`p-2 m-1 border border-solid ${boarderCo[bgColor]} ${bgCo[bgColor]} rounded-md ${bgColor !== "n" && "hover:font-bold"}`} onClick={onClick}>
         {html}
       </button>
