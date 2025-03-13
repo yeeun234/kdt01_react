@@ -62,6 +62,10 @@ export default function Traffic() {
   //대분류가 선택 될때 중분류 나오게하기
   useEffect(() => {
     if (!selC1) return ;
+
+    setC2([]) ;
+    setSelC2('') ;
+    setInfo('');
     // console.log("selC1", selC1);
     //대분류가 변경될때마다 자동으로 중분류값에대한 함수실행 (대분류추출과 똑같이함)
     //대분류 추출
@@ -76,8 +80,9 @@ export default function Traffic() {
   //대분류와 사고유형이 선택될때
 
   useEffect(()=>{
-
+  
     if ( !selC1 || !selC2 ) return ;
+    
     let tm = tdata.filter(item => item["사고유형대분류"] ==selC1 &&
       item["사고유형"] ==selC2); //이러면 selc1이랑 selc2가 둘다 선택된 거 추출
       //근데 나오는게 어레이로 1개값이 나와서 오브젝트로 받으려고 어레이0번을 다시 tm에 담음
@@ -88,11 +93,15 @@ export default function Traffic() {
      let infokey = ["사고유형","사망자수","중상자수","경상자수","부상신고자수"];
 
      tm = infokey.map((item)=>
-        <div key={item}>
-          <span>
+        <div key={item} className="w-1/5 my-3 flex ">
+          <span className="w-3/5 bg-lime-800 text-white font-bold
+                                               inline-flex justify-center items-center
+                                               p-1 text-center">
             {item}
           </span>
-          <span>
+          <span className="w-2/5 text-lime-800 font-bold
+                                               inline-flex justify-center items-center
+                                               p-1 text-center">
             {tm[item]}
           </span>
         </div>
@@ -112,7 +121,7 @@ export default function Traffic() {
     
       { c1 !== undefined ?  <TrafficNav title="대분류"  c={c1} selc={selC1} setselc={setSelC1} /> :'' }
       { c2 !== undefined ?  <TrafficNav title="중분류"  c={c2} selc={selC2} setselc={setSelC2} /> :'' }
-      <div>      
+      <div  className="w-11/12 flex justify-center items-center m-10 bg-lime-100">      
         {info} 
       </div>
 
