@@ -34,7 +34,14 @@ export default function Traffic() {
     useEffect(()=>{
       if(tdata.length<=0) return; //맨첨에 초기화될땐 걸러서 콘솔에 안뜨게 하는 . 초깃값이 배열이니 필드사용가능.
         console.log("tdada : "+tdata); //tdata값이 없던 상태에서 위에 유즈이펙트가 겟패치함수 실행하여 안에 셋함수로 tdata값이 변경되고 , 그래서 유즈이펙트의 의존배열이 변경되어 재출력됨.
+        //대분류 추출
         let tm = tdata.map(item => item["사고유형대분류"]); //오브젝트가 하나의 아이템
+        //중복제거. 근데 타입이 set 집합임. 배열로 바꿔야함.
+        tm = new Set(tm);
+        //한개씩 가져온다.
+        tm = [...tm];
+
+        //tm = [...new Set(tm)];으로 해도 됨
         console.log(tm);
       },[tdata]);
   return (
