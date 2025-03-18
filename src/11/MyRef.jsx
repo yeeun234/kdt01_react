@@ -17,6 +17,19 @@ export default function MyRef() {
     //계산
 
     const handleCal = (e) =>{
+
+        //입력 공백 체크 (공백일땐 알람)
+        if(refInput1.current.value==''){
+            alert('첫번째 값을 입력하세요.');
+            refInput1.current.focus();
+            return; //함수탈출
+        }
+        if(refInput2.current.value==''){
+            alert('두번째 값을 입력하세요.');
+            refInput2.current.focus();
+            return; //함수탈출
+        }
+
         e.preventDefault(); //폼은 값이없으면 자기자신을 도니 이걸해야함
         const RefInput1 = parseInt(refInput1.current.value);
         const RefInput2 = parseInt(refInput2.current.value); //산수 해야하니 인트로 바꾸기
@@ -30,13 +43,20 @@ export default function MyRef() {
 
         }
 
-        console.log("값 :",RefInput1,Refselect,RefInput2,RefResult)
-
+        console.log("값 :",RefInput1,Refselect,RefInput2,RefResult)   
     }
+
+     //첫번째 인풋에 포커스되면 입력초기화
+     const handleInit = () => {
+        refInput1.current.value = '';
+        refInput2.current.value = '';
+        refResult.current.value = '';
+        //refselect.current.value = selected;
+    } 
     return (
         <div className="w-full h-1/12 flex items-center justify-center">
             <form className= "bg-amber-100  w-10/12 h-full flex justify-center items-center " action="">
-                <input ref={refInput1} className="bg-white h-7/10 rounded-lg text-center focus:ring-blue-100 focus:border-blue-200" autoFocus type="number"  />
+                <input ref={refInput1} onFocus={handleInit} className="bg-white h-7/10 rounded-lg text-center focus:ring-blue-100 focus:border-blue-200" autoFocus type="number"  />
                 <select ref={refselect} name="선택" id="sel" className=" h-7/10 w-1/17 bg-white m-2">
                     <option className="w-full " value="+" selected>+</option>
                     <option className="w-full " value="/" >/</option>
