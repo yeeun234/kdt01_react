@@ -31,8 +31,8 @@ export default function MyRef() {
         }
 
         e.preventDefault(); //폼은 값이없으면 자기자신을 도니 이걸해야함
-        const RefInput1 = parseInt(refInput1.current.value);
-        const RefInput2 = parseInt(refInput2.current.value); //산수 해야하니 인트로 바꾸기
+        let RefInput1 = parseInt(refInput1.current.value);
+        let RefInput2 = parseInt(refInput2.current.value); //산수 해야하니 인트로 바꾸기
         
         
         switch (refselect.current.value){
@@ -57,7 +57,7 @@ export default function MyRef() {
         <div className="w-full h-1/12 flex items-center justify-center">
             <form className= "bg-amber-100  w-10/12 h-full flex justify-center items-center " action="">
                 <input ref={refInput1} onFocus={handleInit} className="bg-white h-7/10 rounded-lg text-center focus:ring-blue-100 focus:border-blue-200" autoFocus type="number"  />
-                <select ref={refselect} name="선택" id="sel" className=" h-7/10 w-1/17 bg-white m-2">
+                <select ref={refselect} name="선택" id="sel" className=" h-7/10 w-1/17 bg-white m-2 text-center">
                     <option className="w-full " value="+" selected>+</option>
                     <option className="w-full " value="/" >/</option>
                     <option className="w-full " value="*">*</option>

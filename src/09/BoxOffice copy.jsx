@@ -1,12 +1,10 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { FaArrowUp, FaArrowDown } from "react-icons/fa6"; 
 
 export default function BoxOffice() {
   //State variables
   const [tags, setTags] = useState([]);
   const [info, setInfo] = useState('');
-  //날짜설정
-  const [dt, setDt] =useState();
 
  //어제날짜가져오기 
  const getYesterday = () => {
@@ -36,9 +34,9 @@ const handleclick = (item) => {
   //fetch the daily boxoffice data
   const getFetchData = async () => {
     const mvApiKey = import.meta.env.VITE_APP_MY_KEY;
-    let tmdt = dt.replaceAll('-', '');
+    let dt = getYesterday().replaceAll('-', '');
     let url = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?'
-    url = `${url}key=${mvApiKey}&targetDt=${tmdt}`;//dt로 하면 순위 증감률이 안나와서 다른날짜로 변경.
+    url = `${url}key=${mvApiKey}&targetDt=${20250305}`;//dt로 하면 순위 증감률이 안나와서 다른날짜로 변경.
     console.log(url)
 
     const resp = await fetch(url);
@@ -90,36 +88,15 @@ const handleclick = (item) => {
 
 
   useEffect(() => {
-    //will fetch once when component was run. //제일 처음 로드되는 값. dt를 어제날짜로 자동렌더링되게 세팅. 데이트의 맥스값도 자동으로 설정되게 함(한번만)
-    setDt(getYesterday());
-    refDate.current.max = getYesterday();
+    //will fetch once when component was run.
+    getFetchData();
 
   }, []);
 
   
-  //useref변수
-  const refDate = useRef();
-
-  //dt 날짜 설정이 바뀔때마다 화면 재설정 
-  useEffect(()=>{
-
-    if(!dt) return; 
-    refDate.current.value =dt ; //제일 처음에 로드됐을때 95라인으로 인해 벨류값이 어제날짜로 로드되게 설정.
-    getFetchData();
-  },[dt]);
-    
-  const handleChange = ()=>{
-    setInfo(''); //바뀔때마다 제일아래 인포값이 초기화되도록함.
-    setDt(refDate.current.value); //체인지가 있을때마다 dt값이 변경되도록함.
-  }
-
 
   return (
     <div>
-      <div className="flex justify-end items-center m-5">
-        <span className="font-bold text-2xl p-1 inline-flex "> 날짜 선택 :</span>
-        <input  onChange={handleChange} type="date" className=" m-1 border-2"  ref={refDate}/>
-      </div>
      <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr >

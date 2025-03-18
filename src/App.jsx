@@ -9,7 +9,7 @@ import MyClock from "./02/MyClock";
 import FoodMain from "./06/FoodMain";
 // import MyToggle from "./07/MyToggle";
 // import MyEffect from "./08/MyEffect";
-// import BoxOffice from "./09/BoxOffice";
+import BoxOffice from "./09/BoxOffice";
 // import Traffic from "./10/Traffic";
 import MyRef from "./11/MyRef";
 
@@ -29,9 +29,9 @@ function App() {
         {/* <MyToggle></MyToggle> */}
         {/* <MyEffect></MyEffect> */}
         {/* <MyClock></MyClock> */}
-        {/* <BoxOffice></BoxOffice> */}
+        <BoxOffice></BoxOffice>
         {/* <Traffic /> */}
-        <MyRef></MyRef>
+        {/* <MyRef></MyRef>/ */}
       </main>
       <footer className="w-full min-h-20 bg-pink-100 flex justify-center  text-md font-bold items-center px-10">
         <h1 className="font-bold text-[12px] text-gray-600">[K-Digital 부산대 25-1회차] AI 데이터 분석 풀스택 웹 개발자 양성과정</h1>
