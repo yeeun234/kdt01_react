@@ -11,13 +11,26 @@ export default function MyRef() {
     //컴포넌트 생성시 입력상자에 포커스  (오토포커스 써도 되지만)
     useEffect(()=>{ 
         refInput1.current.focus(); //렌더링되면 유즈이펙트는 일단 함수를 실행하니.
+        handleCal
     },[]);
 
     //계산
 
     const handleCal = (e) =>{
-        e.preventEffect(); //폼은 값이없으면 자기자신을 도니 이걸해야함
-      
+        e.preventDefault(); //폼은 값이없으면 자기자신을 도니 이걸해야함
+        const RefInput1 = parseInt(refInput1.current.value);
+        const RefInput2 = parseInt(refInput2.current.value); //산수 해야하니 인트로 바꾸기
+        
+        
+        switch (refselect.current.value){
+            case "+" : refResult.current.value = RefInput1 + RefInput2; break;
+            case "-" : refResult.current.value = RefInput1 - RefInput2; break;
+            case "/" : refResult.current.value = RefInput1 / RefInput2; break;
+            case "*" : refResult.current.value = RefInput1 * RefInput2; break;
+
+        }
+
+        console.log("값 :",RefInput1,Refselect,RefInput2,RefResult)
 
     }
     return (
