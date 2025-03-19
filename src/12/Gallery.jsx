@@ -1,7 +1,10 @@
-import { useEffect } from "react";
+import { useEffect ,useState } from "react";
 import TailCard from "../UI/TailCard"
 
 export default function Gallery() {
+
+    // [card, setCard] = useState([]);
+
     const item = {
         galContentId: "2988721",
         galContentTypeId: "17" ,
@@ -22,18 +25,31 @@ export default function Gallery() {
         const response = await fetch(url);
         // console.log("response" ,response);
         const data = await response.json();
-        // console.log("data" ,data);
+        // console.log("data" ,data); 
+
+        //하나씩 가져오기
+        let galList = data.response.body.items.item; 
+        // console.log("galList" ,galList);
+
+        let tm = galList.map(item => 
+            <TailCard key={item.galContentId} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
+        );
+
+        setCard(tm);
     };
-    const card = <TailCard title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
    
+    //패치
     useEffect(() => {
-        getFetch();
+        // getFetch();
     },[]);
 
 
   return (
-    <div>
-      {card}
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 "> 
+      <TailCard key={item.galContentId} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
+      <TailCard key={item.galContentId} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
+      <TailCard key={item.galContentId} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
+
     </div>
   )
 }
