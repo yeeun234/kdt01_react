@@ -47,7 +47,7 @@ export default function Gallery() {
   return (
     <div className="w-full flex flex-col justify-center items-center ">
         <GalleryNav />
-        <div className="m-10 bg-amber-200 w-10/12 grid grid-cols-1 lg:grid-cols-3 gap-4 place-content-center place-items-center">  
+        <div className="m-10  w-10/12 grid grid-cols-1 lg:grid-cols-3 gap-4 place-content-center place-items-center">  
             {card}
         </div>
     </div>
