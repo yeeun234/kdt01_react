@@ -1,9 +1,9 @@
-import { useEffect ,useState } from "react";
+import { useState, useEffect } from "react"
 import TailCard from "../UI/TailCard"
 
 export default function Gallery() {
 
-    // [card, setCard] = useState([]);
+    const [card, setCard] = useState([]);
 
     const item = {
         galContentId: "2988721",
@@ -40,16 +40,13 @@ export default function Gallery() {
    
     //패치
     useEffect(() => {
-        // getFetch();
+        getFetch();
     },[]);
 
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 "> 
-      <TailCard key={item.galContentId} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
-      <TailCard key={item.galContentId} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
-      <TailCard key={item.galContentId} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
-
+        {card}
     </div>
   )
 }
