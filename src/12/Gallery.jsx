@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import TailCard from "../UI/TailCard"
+
 export default function Gallery() {
     const item = {
         galContentId: "2988721",
@@ -12,9 +14,26 @@ export default function Gallery() {
         galPhotographer: "한국관광공사 송재근",
         galSearchKeyword: "태종대유원지, 부산광역시 영도구, 명승 제17호, 태종사, 절, 사찰, 종교, 불교"
     }
+
+    //패치
+    const getFetch = async ()  => {
+        const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
+        const url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${VITE_APP_API_KEY}&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=%ed%83%9c%ec%a2%85%eb%8c%80&_type=json`;
+        const response = await fetch(url);
+        // console.log("response" ,response);
+        const data = await response.json();
+        // console.log("data" ,data);
+    };
+    const card = <TailCard title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
+   
+    useEffect(() => {
+        getFetch();
+    },[]);
+
+
   return (
     <div>
-      <TailCard title={item.galTitle}subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword ={item.galSearchKeyword}/>
+      {card}
     </div>
   )
 }
