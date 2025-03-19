@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react"
 import TailCard from "../UI/TailCard"
-import GalleryNav from "./GalleryNav";
+import TailButton from '../UI/TailButton'
+import { PiGlobeSimpleThin } from "react-icons/pi";
+import TailInput from "../UI/TailInput";
+
 export default function Gallery() {
 
     const [card, setCard] = useState([]);
@@ -21,7 +24,8 @@ export default function Gallery() {
     //패치
     const getFetch = async ()  => {
         const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
-        const url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${VITE_APP_API_KEY}&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=%ed%83%9c%ec%a2%85%eb%8c%80&_type=json`;
+        const location = encodeURIComponent("금정산");
+        const url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${VITE_APP_API_KEY}&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=${location}&_type=json`;
         const response = await fetch(url);
         // console.log("response" ,response);
         const data = await response.json();
@@ -46,7 +50,16 @@ export default function Gallery() {
 
   return (
     <div className="w-full flex flex-col justify-center items-center ">
-        <GalleryNav />
+      
+        <div className='w-8/10 h-full flex-col justify-center items-center mt-5 bg-gray-50'> 
+                    <h1 className='text-2xl font-bold inline-flex justify-center items-center mt-10'>한국관광공사 관광 사진 정보 <PiGlobeSimpleThin />
+                    </h1>
+                    <div className='flex justify-center items-center w-full h-15   m-2 '>
+                        <TailInput/>
+                        <TailButton caption="확인" color="blue"  />
+                        <TailButton caption="취소" color="blue" />
+                    </div>
+        </div>
         <div className="m-10  w-10/12 grid grid-cols-1 lg:grid-cols-3 gap-4 place-content-center place-items-center">  
             {card}
         </div>
