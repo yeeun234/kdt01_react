@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import TailCard from "../UI/TailCard"
-
+import GalleryNav from "./GalleryNav";
 export default function Gallery() {
 
     const [card, setCard] = useState([]);
@@ -45,8 +45,11 @@ export default function Gallery() {
 
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 "> 
-        {card}
+    <div className="w-full flex flex-col justify-center items-center ">
+        <GalleryNav />
+        <div className="m-10 bg-amber-200 w-10/12 grid grid-cols-1 lg:grid-cols-3 gap-4 place-content-center place-items-center">  
+            {card}
+        </div>
     </div>
   )
 }

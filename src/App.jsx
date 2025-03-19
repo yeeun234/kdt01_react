@@ -25,7 +25,7 @@ function App() {
         </div>
       </header>
       <main className="w-full  flex-grow text-center
-      flex flex-col justify-center items-center overflow-y-auto">
+      flex flex-col justify-start items-center overflow-y-auto">
         {/* <FoodMain></FoodMain> */}
         {/* <MyToggle></MyToggle> */}
         {/* <MyEffect></MyEffect> */}
