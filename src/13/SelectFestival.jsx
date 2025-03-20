@@ -1,10 +1,23 @@
-import TailInput from '../UI/TailInput'
-import { useRef } from 'react'
+
 export default function SelectFestival() {
-    const inputRef = useRef();
+
+    const getFetch = async () => {
+        const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
+        let url = `https://apis.data.go.kr/6260000/FestivalService/getFestivalKr?serviceKey=${VITE_APP_API_KEY}&pageNo=1&numOfRows=39&resultType=json`;
+        const res = await fetch(url);
+        const data = await res.json();
+
+        const festivalList = data.getFestivalKr.item;
+        console.log(festivalList);
+    }
+
+    getFetch();
   return (
     <div>
-      <TailInput Ref={inputRef} type="select"></TailInput>
+      <select name="" id="">
+        <option value="김"></option>
+      </select>
+      
     </div>
   )
 }

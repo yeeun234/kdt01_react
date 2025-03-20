@@ -12,9 +12,9 @@ import { GrAndroid } from "react-icons/gr";
 // import BoxOffice from "./09/BoxOffice";
 // import Traffic from "./10/Traffic";
 // import MyRef from "./11/MyRef";
-import Gallery from "./12/Gallery"
+// import Gallery from "./12/Gallery"
 // import TailInput from "./UI/TailInput";
-
+import SelectFestival from "./13/SelectFestival";
 function App() {
 
   return (
@@ -34,8 +34,9 @@ function App() {
         {/* <BoxOffice></BoxOffice> */}
         {/* <Traffic /> */}
         {/* <MyRef></MyRef>/ */}
-        <Gallery/>
+        {/* <Gallery/> */}
         {/* <TailInput/> */}
+        <SelectFestival/>
       </main>
       <footer className="w-full min-h-20 bg-pink-100 flex justify-center  text-md font-bold items-center px-10">
         <h1 className="font-bold text-[12px] text-gray-600">[K-Digital 부산대 25-1회차] AI 데이터 분석 풀스택 웹 개발자 양성과정</h1>
