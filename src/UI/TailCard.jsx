@@ -12,7 +12,7 @@ export default function TailCard({ title, subtitle, imgurl, keyword }) {
             </div>
             <div className="w-full p-5">
                 
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white truncate">{title}</h5>
                 
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{subtitle}</p>
                 <div>
