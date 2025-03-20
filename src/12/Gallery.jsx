@@ -57,6 +57,10 @@ export default function Gallery() {
         console.log("input" ,inputk.current.value); //확인 클릭시 입력값 콘솔에출력
         let info = encodeURI(inputk.current.value); //한글을 인코딩
         console.log("info" ,info);
+        if(inputk.current.value === ''){
+            alert("검색어를 입력하세요");
+            return;
+        }
         getFetch();
     }
 
