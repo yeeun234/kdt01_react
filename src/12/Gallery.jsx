@@ -25,28 +25,25 @@ export default function Gallery() {
     const getFetch = async () => {
         const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
         let url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${VITE_APP_API_KEY}&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=${encodeURI(inputk.current.value)}&_type=json`;
-        let response = await fetch(url);
+        const response = await fetch(url);
         // console.log("response" ,response);
-        let data = await response.json();
+        const data = await response.json();
         // console.log("data" ,data); 
 
         //하나씩 가져오기
-        let galList = data.response.body.items.item;
+        const galList = data.response.body.items.item;
         // console.log("galList" ,galList);
 
-        let tm = galList.map(item =>
-            <TailCard key={item.galContentId} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
+        let tm = galList.map((item, idx) =>
+            <TailCard key={item.galContentId + idx} title={item.galTitle} subtitle={item.galPhotographyLocation} imgurl={item.galWebImageUrl} keyword={item.galSearchKeyword} />
         );
 
         setCard(tm);
     };
 
-    //패치와 포커스 
+    //인풋박스 포커스 
     useEffect(() => {
         inputk.current.focus();
-        inputk.current.value = '';
-        
-       
 
     }, []);
 
@@ -63,6 +60,13 @@ export default function Gallery() {
         getFetch();
     }
 
+    const onReset = () => {
+        inputk.current.value = '';
+        inputk.current.focus();
+        //초기화
+        setCard([]);
+    }
+
 
     return (
         <div className="w-full flex flex-col justify-center items-center ">
@@ -73,7 +77,7 @@ export default function Gallery() {
                 <div className='flex justify-center items-center w-full h-15   m-2 '>
                     <TailInput Ref={inputk} />
                     <TailButton caption="확인" color="blue" onClick={onSearch} />
-                    <TailButton caption="취소" color="blue" />
+                    <TailButton caption="취소" color="blue" onClick={onReset}/>
                 </div>
             </div>
             <div className="m-10 w-10/12 grid grid-cols-1 lg:grid-cols-3 gap-4 place-content-center">
