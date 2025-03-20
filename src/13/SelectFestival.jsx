@@ -49,13 +49,13 @@ export default function SelectFestival() {
         //셀렉트박스 선택시 그 구에 해당하는 축제만 카드로 만들어서 보여주기
         let tm = totalData.filter((item) => item.GUGUN_NM === selectRef.current.value);// 선택한 구와 일치하는 데이터만 필터링
         //해당 데이터로 카드 만들기
-        tm= tm.map((item)=> <TailCard key={item.UC_SEQ} title={item.MAIN_TITLE} subtitle={item.SUBTITLE} imgurl={item.MAIN_IMG_NORMAL} keyword={item.USAGE_DAY_WEEK_AND_TIME}/>);
+        tm= tm.map((item)=> <TailCard key={item.UC_SEQ} title={(item.MAIN_TITLE).split('(')[0]} subtitle={item.SUBTITLE} imgurl={item.MAIN_IMG_NORMAL} keyword={item.USAGE_DAY_WEEK_AND_TIME}/>);
         //만든 태그들 스테이트변수에 넣어주기
         setCards(tm);
     }
   return (
     <div>
-      <TailSelect id="sel1" selectRef={selectRef}  handleChange={handleChange}  optionArray={options}/>
+      {options.length >0 && <TailSelect id="sel1" selectRef={selectRef}  handleChange={handleChange}  optionArray={options}/> }
       {cards}
     </div>
     
