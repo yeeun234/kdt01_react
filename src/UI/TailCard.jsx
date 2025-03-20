@@ -1,6 +1,6 @@
 
 
-export default function TailCard({ title, subtitle, imgurl, keyword }) {
+export default function TailCard({ title, subtitle, imgurl, keyword,imgLink }) {
     const key = keyword.split(', ');
     let tm = key.map(item => 
         <span key={item} className="m-1 font-light text-sm bg-gray-300 rounded-md text-gray-700">{item}</span>);
@@ -8,7 +8,9 @@ export default function TailCard({ title, subtitle, imgurl, keyword }) {
     return (
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
             <div className='w-full h-48'>
-            <img className="w-full h-full rounded-t-lg object-cover" src={imgurl} alt={title} />
+                <a href={imgLink} target="_blank">
+                    <img className="w-full h-full rounded-t-lg object-cover" src={imgurl} alt={title} />
+                </a>
             </div>
             <div className="w-full p-5">
                 
