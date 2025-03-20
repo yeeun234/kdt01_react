@@ -24,11 +24,10 @@ export default function Gallery() {
     //패치
     const getFetch = async () => {
         const VITE_APP_API_KEY = import.meta.env.VITE_APP_API_KEY;
-        const location = encodeURIComponent("금정산");
-        const url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${VITE_APP_API_KEY}&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=${location}&_type=json`;
-        const response = await fetch(url);
+        let url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${VITE_APP_API_KEY}&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=${encodeURI(inputk.current.value)}&_type=json`;
+        let response = await fetch(url);
         // console.log("response" ,response);
-        const data = await response.json();
+        let data = await response.json();
         // console.log("data" ,data); 
 
         //하나씩 가져오기
@@ -42,9 +41,13 @@ export default function Gallery() {
         setCard(tm);
     };
 
-    //패치
+    //패치와 포커스 
     useEffect(() => {
-        getFetch();
+        inputk.current.focus();
+        inputk.current.value = '';
+        
+       
+
     }, []);
 
 
@@ -54,9 +57,10 @@ export default function Gallery() {
 
 
     const onSearch = () => {
-        console.log("input" ,inputk.current); //확인 클릭시 입력값 콘솔에출력
-        let info = encodeURIComponent(inputk.current); //한글을 인코딩
+        console.log("input" ,inputk.current.value); //확인 클릭시 입력값 콘솔에출력
+        let info = encodeURI(inputk.current.value); //한글을 인코딩
         console.log("info" ,info);
+        getFetch();
     }
 
 
@@ -72,7 +76,7 @@ export default function Gallery() {
                     <TailButton caption="취소" color="blue" />
                 </div>
             </div>
-            <div className="m-10  w-10/12 grid grid-cols-1 lg:grid-cols-3 gap-4 place-content-center place-items-center">
+            <div className="m-10 w-10/12 grid grid-cols-1 lg:grid-cols-3 gap-4 place-content-center">
                 {card}
             </div>
         </div>
