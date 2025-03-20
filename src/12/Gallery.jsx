@@ -79,7 +79,7 @@ export default function Gallery() {
                 <h1 className='text-2xl font-bold inline-flex justify-center items-center mt-10'>한국관광공사 관광 사진 정보 <PiGlobeSimpleThin />
                 </h1>
                 <div className='flex justify-center items-center w-full h-15   m-2 '>
-                    <TailInput Ref={inputk} />
+                    <TailInput Ref={inputk} type="text" />
                     <TailButton caption="확인" color="blue" onClick={onSearch} />
                     <TailButton caption="취소" color="blue" onClick={onReset}/>
                 </div>
