@@ -1,15 +1,16 @@
-import { Link } from "react-router-dom"
-export default function RouteNav() {
+import { Link  } from "react-router-dom"
 
+export default function RouteNav() {
+    
     return (
-        <div className=" w-full  p-5 h-50px bg-pink-100">
+        <div className=" w-full  p-5 h-50px bg-pink-100 mt-4 mb-4">
             <ul className="flex justify-around text-xl  text-pink-500 font-bold   ">
                 <Link to="/">
                     <li className=" bg-pink-200  border border-pink-100  hover:border-pink-400 1px p-1.5 rounded-xl solid">
                         RouteHome
                     </li>
                 </Link>
-                <Link to="/p1">
+                <Link to="/p1/m/m">
                     <li className=" bg-pink-200 border border-pink-100  hover:border-pink-400 1px p-1.5 rounded-xl solid">
                         Page1
                     </li>
