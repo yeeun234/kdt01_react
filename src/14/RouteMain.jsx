@@ -5,7 +5,7 @@ import RouteNav from "./RouteNav"
 import { Route, Routes ,BrowserRouter} from "react-router-dom"
 export default function RouteMain() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
         <div className=" w-10/12 h-full">
          <RouteNav/> 
          <Routes>
@@ -14,6 +14,6 @@ export default function RouteMain() {
             <Route path="/p2" element={<RoutePage2 />} />
          </Routes>
         </div>
-    </BrowserRouter>
+    // </BrowserRouter>
   )
 }

@@ -27,7 +27,7 @@ export default function FoodMain() {
     console.log(category);
     const bts = category.map((item => <TailButton
         key={item}
-        color="blue"
+        color="pink"
         caption={item}
         onClick={() => handle(item)}
     />))

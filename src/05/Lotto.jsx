@@ -49,7 +49,7 @@ export default function Lotto() {
                 {lottoTags}
             </div>
             <div>
-                <TailButton caption="로또번호생성" color="blue" onClick={handleLottoNum} ></TailButton>
+                <TailButton caption="로또번호생성" color="pink" onClick={handleLottoNum} ></TailButton>
                 {/* <TailButton caption="fh" color="yellow" onClick={handleLottoNum} ></TailButton> */}
             </div>
         </div>

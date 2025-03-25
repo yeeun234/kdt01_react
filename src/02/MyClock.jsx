@@ -4,7 +4,7 @@ import MyClockTime from "./MyClockTime";
 function MyClock () {
     const clock = new Date().toLocaleTimeString();
     return(
-        <div className="felx flex-col justyfy-center items-center">
+        <div className="h-full  flex flex-col justify-center items-center">
             <MyClockimage />
             <MyClockTime />
         </div>

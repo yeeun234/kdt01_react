@@ -58,7 +58,7 @@ export default function Gallery() {
         let info = encodeURI(inputk.current.value); //한글을 인코딩
         console.log("info" ,info);
         if(inputk.current.value === ''){
-            alert("검색어를 입력하세요");
+            alert("검색어를 입력하세요 예:부산");
             return;
         }
         getFetch();
@@ -80,8 +80,8 @@ export default function Gallery() {
                 </h1>
                 <div className='flex justify-center items-center w-full h-15   m-2 '>
                     <TailInput Ref={inputk} type="text" />
-                    <TailButton caption="확인" color="blue" onClick={onSearch} />
-                    <TailButton caption="취소" color="blue" onClick={onReset}/>
+                    <TailButton caption="확인" color="pink" onClick={onSearch} />
+                    <TailButton caption="취소" color="pink" onClick={onReset}/>
                 </div>
             </div>
             <div className="m-10 w-10/12 grid grid-cols-1 lg:grid-cols-3 gap-4 place-content-center">

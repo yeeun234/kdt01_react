@@ -27,7 +27,7 @@ function MyClockTime() {
     return(
         <div className={styles.pst}>
             <h1>현재시각은 <span style={fontStyle}>{currentTime.toLocaleTimeString()}</span> 입니다.</h1>
-            <TailButtonLine bgColor="orange" html="버튼" onClick={handleClick}></TailButtonLine>
+            {/* <TailButtonLine bgColor="orange" html="버튼" onClick={handleClick}></TailButtonLine> */}
         </div>
     )
 
