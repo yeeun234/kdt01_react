@@ -8,12 +8,12 @@ export default function FcstList() {
   const [ser] = useSearchParams();
   const date = ser.get('dt');
   const si = ser.get('si');
-  const guban = ser.get('gubun');
+  const gubun = ser.get('gubun');
   const x = ser.get('x');
   const y = ser.get('y');
 
   const RefItems = useRef();
-  const opsItems =   getcode.filter(item=>item["예보구분"] == guban)
+  const opsItems =   getcode.filter(item=>item["예보구분"] == gubun)
                             .map(item=>`${item["항목명"]}(${item["항목값"]})`);
   console.log(guban, opsItems);
   const handleChange = () => {
