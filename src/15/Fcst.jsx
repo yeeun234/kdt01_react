@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef ,useEffect  } from 'react';
 import { useNavigate } from "react-router-dom";
 import TailSelect from '../UI/TailSelect';
 import TailButtonLine from '../UI/TailButtonLine';
@@ -7,6 +7,10 @@ export default function Fcst() {
     const RefDate = useRef();
     const RefSi = useRef();
     const navigate = useNavigate() ;
+
+    useEffect(() => {
+        RefDate.current.value = new Date().toISOString().split('T')[0];
+      }, []) ;
 
     let opsSi = getxy.map(item=>item["1단계"]);
     opsSi=["--시/도 선택--" ,...opsSi];
