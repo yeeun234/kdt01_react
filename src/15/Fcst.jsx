@@ -10,7 +10,9 @@ export default function Fcst() {
 
     useEffect(() => {
         RefDate.current.value = new Date().toISOString().split('T')[0];
+        console.log(RefDate.current.value)
       }, []) ;
+
 
     let opsSi = getxy.map(item=>item["1단계"]);
     opsSi=["--시/도 선택--" ,...opsSi];
