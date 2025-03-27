@@ -1,6 +1,6 @@
 
 
-export default function TailInput({Ref,type,children}) {
+export default function TailInput({Ref,type}) {
 
 
   return (
