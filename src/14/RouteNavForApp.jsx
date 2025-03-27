@@ -29,12 +29,17 @@ export default function RouteNav() {
                     <li className=" bg-pink-300 border border-pink-200  hover:border-pink-400 1px p-1.5 rounded-xl solid">
                         SelectFestival
                     </li>
-                </Link><Link to="/Lotto">
+                </Link>
+                <Link to="/Lotto">
                     <li className=" bg-pink-300 border border-pink-200  hover:border-pink-400 1px p-1.5 rounded-xl solid">
                         Lotto
                     </li>
                 </Link>
-
+                <Link to="/Fcst">
+                    <li className=" bg-pink-300 border border-pink-200  hover:border-pink-400 1px p-1.5 rounded-xl solid">
+                        Forcast
+                    </li>
+                </Link>
             </ul>
         </div>
     )

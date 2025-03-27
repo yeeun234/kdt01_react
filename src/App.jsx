@@ -10,6 +10,8 @@ import Traffic from "./10/Traffic";
 import Gallery from "./12/Gallery"
 import SelectFestival from "./13/SelectFestival";
 import RouteNavForApp from "./14/RouteNavForApp";
+import Fcst from "./15/Fcst";
+import FcstList from "./15/FcstList";
 function App() {
 
   return (
@@ -23,7 +25,7 @@ function App() {
           <Link to='/'><IoHome /></Link>
         </div>
       </header>
-      <main className="w-full bg-amber-100 flex-grow text-center
+      <main className="w-full  flex-grow text-center
       flex flex-col justify-start items-center overflow-y-auto">
         <Routes>
           <Route path='/' element={<MyClock/>}></Route>
@@ -33,6 +35,8 @@ function App() {
           <Route path='/Gallery' element={<Gallery/>}></Route>
           <Route path='/SelectFestival' element={<SelectFestival/>}></Route>
           <Route path='/Lotto' element={<Lotto/>}></Route>
+          <Route path='/Fcst' element={<Fcst/>}></Route>
+          <Route path='/FcstList' element={<FcstList/>}></Route>
         </Routes>
       </main>
       <footer className="w-full min-h-20 bg-pink-100 flex justify-center  text-md font-bold items-center px-10">
