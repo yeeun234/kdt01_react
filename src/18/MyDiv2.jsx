@@ -8,9 +8,7 @@ export default function MyDiv2() {
       <div className="w-full text-left mb-10">
         MyDiv2
       </div>
-
-      {/* //div2는 프롭스를 안쓰지만 자식에서 쓰기에 전달받고 상속함. 프롭스 드릴링*/}
-      <MyDiv3 />
+      <MyDiv3/>
     </div>
   )
 }
