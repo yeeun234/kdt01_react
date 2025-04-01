@@ -18,7 +18,7 @@ export default function FcstList() {
   const y = ser.get('y');
 
   //sky는 코드값마다 맑음 흐림 등 설정이 다름
-  const sky = {'1' : '맑음😊' ,'3':'구름많음'};
+  const sky = {'1' : '맑음😊' ,'3':'구름많음','4':'흐림'};
   const pty = {'0':'없음','1':'비','2':'비/눈', '4':'소나기','5':'빗방울','3':'눈','6':'빗방울눈날림','7':'눈날림'}
 
   const RefItems = useRef();
@@ -52,7 +52,8 @@ export default function FcstList() {
                             </td>
                             <td className="px-6 py-3">
                               { code == 'SKY' ? `${sky[item.fcstValue]}` 
-                                              : `${item.fcstValue}${unit}` }
+                                              : code == 'PTY' ? `${pty[item.fcstValue]}`:
+                                                              `${item.fcstValue} ${unit}` }
                             </td>
                         </tr>)
 
