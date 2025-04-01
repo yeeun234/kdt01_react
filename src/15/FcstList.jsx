@@ -17,6 +17,10 @@ export default function FcstList() {
   const x = ser.get('x');
   const y = ser.get('y');
 
+  //sky는 코드값마다 맑음 흐림 등 설정이 다름
+  const sky = {'1' : '맑음😊' ,'3':'구름많음'};
+  const pty = {'0':'없음','1':'비','2':'비/눈', '4':'소나기','5':'빗방울','3':'눈','6':'빗방울눈날림','7':'눈날림'}
+
   const RefItems = useRef();
   const opsItems = getcode.filter(item => item["예보구분"] == gubun)
     .map(item => `${item["항목명"]}[${item["항목값"]}]`);
@@ -47,7 +51,8 @@ export default function FcstList() {
                               {item.fcstTime.slice(0,2)}시{item.fcstTime.slice(2,4)}분
                             </td>
                             <td className="px-6 py-3">
-                              {item.fcstValue} {unit == "코드값" ? "" : unit }
+                              { code == 'SKY' ? `${sky[item.fcstValue]}` 
+                                              : `${item.fcstValue}${unit}` }
                             </td>
                         </tr>)
 
