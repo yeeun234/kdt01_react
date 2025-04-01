@@ -6,7 +6,7 @@ export default function MyDiv2() {
                     p-10 font-bold
                     flex flex-col justify-start items-center">
       <div className="w-full text-left mb-10">
-        MyDiv2
+        MyDiv2 localn = {localStorage.getItem("n")}
       </div>
       <MyDiv3/>
     </div>

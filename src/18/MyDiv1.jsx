@@ -7,6 +7,8 @@ export default function MyDiv1() {
 
   useEffect(() => {
     setN2(n * 2) ;
+
+    localStorage.setItem("test","test")
   }, [n]);
   return (
     <div className="w-8/10 h-8/10  
