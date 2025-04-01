@@ -78,6 +78,8 @@ export default function FcstList() {
   useEffect(()=>{ 
     if(!tdata) return;
     console.log("tdata",tdata);
+    //시작시 선택된것처럼
+    handleChange();
   },[tdata]);
 
   useEffect
