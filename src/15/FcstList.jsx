@@ -34,21 +34,21 @@ export default function FcstList() {
     let unit = getcode.filter(item => item.예보구분 == gubun && item["항목값"]==code);
     unit = unit[0].단위;
     console.log("단위",unit);
-    tm = tm.map(item => <tr key ={item.fcstDate+item.fcstTime} >
+    tm = tm.map(item => <tr key ={item.fcstDate+item.fcstTime} className="hover:bg-amber-300 w-full" >
                             <td className="p-4">
                             </td>
                             <td className="px-6 py-3">
                               {RefItems.current.value}
                             </td>
-                            <th className="px-6 py-3">
+                            <td className="px-6 py-3">
                               {item.fcstDate.slice(0,4)}.{item.fcstDate.slice(4,6)}.{item.fcstDate.slice(6,8)}
-                            </th>
-                            <th className="px-6 py-3">
+                            </td>
+                            <td className="px-6 py-3">
                               {item.fcstTime.slice(0,2)}시{item.fcstTime.slice(2,4)}분
-                            </th>
-                            <th className="px-6 py-3">
-                              {item.fcstValue} {unit}
-                            </th>
+                            </td>
+                            <td className="px-6 py-3">
+                              {item.fcstValue} {unit == "코드값" ? "" : unit }
+                            </td>
                         </tr>)
 
     setTags(tm);
@@ -84,7 +84,7 @@ export default function FcstList() {
   return (
     <div>
 
-      <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap 4 border 1px solid mt-4 place-items-center'>
+      <div className='w-full grid grid-cols-1 lg:grid-cols-2 gap 4 bg-amber-50 mt-4 place-items-center'>
         <h1 className=" m-6 font-bold text-xl ">
           {si} {gubun} ( {date.replaceAll('-', '.')} )
         </h1>
@@ -93,7 +93,7 @@ export default function FcstList() {
 
       <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr >
+          <tr className="font-bold" >
             <td className="p-4">
             </td>
             <td className="px-6 py-3">
@@ -110,7 +110,7 @@ export default function FcstList() {
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="w-full">
           {tags}
         </tbody>
       </table>
