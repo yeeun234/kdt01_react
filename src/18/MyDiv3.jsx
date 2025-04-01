@@ -1,7 +1,8 @@
 import TailButton from "../UI/TailButton" ;
-
+import { useCntStore } from "./usecntStore";
 export default function MyDiv3() {
-  const [n,setN] =useAtom(cntAtom);
+  const increase = useCntStore((state)=>state.increase);
+  const decrease = useCntStore((state)=>state.decrease);
   return (
     <div className="w-8/10 h-8/10 
                         bg-lime-500 text-white text-2xl
@@ -10,10 +11,10 @@ export default function MyDiv3() {
       <div className="w-full grid grid-cols-2 gap-4">
         <TailButton caption ="증가"
                      color = "blue" 
-                     onClick = {()=>{setN(n+1)}} />
+                     onClick = {increase} />
         <TailButton caption ="감소"
                      color = "blue" 
-                     onClick = {()=>{setN(n-1)}} />
+                     onClick = {decrease} />
       </div> 
     </div>
   )

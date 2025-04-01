@@ -1,12 +1,14 @@
 import MyDiv2 from "./MyDiv2"
-
-
+import { useCntStore } from "./usecntStore";
+import { useState, useEffect } from "react";
 
 export default function MyDiv1() {
-  const [n] = useAtom(cntAtom);
-  const [n2] = useAtom(cntAtom2);
+  const [n] =useCntStore((state)=>state.cnt);
+  const [n2,setN2]=useState();
   
- 
+  useEffect(()=>{
+    setN2(n*2);
+  },[n]);
   
   return (
     <div className="w-8/10 h-8/10  
