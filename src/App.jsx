@@ -12,7 +12,7 @@ import SelectFestival from "./13/SelectFestival";
 import RouteNavForApp from "./14/RouteNavForApp";
 import Fcst from "./15/Fcst";
 import FcstList from "./15/FcstList";
-import MyDiv1 from "./16/MyDiv1";
+import MyDiv1 from "./17/MyDiv1";
 function App() {
 
   return (
