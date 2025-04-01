@@ -12,6 +12,7 @@ import SelectFestival from "./13/SelectFestival";
 import RouteNavForApp from "./14/RouteNavForApp";
 import Fcst from "./15/Fcst";
 import FcstList from "./15/FcstList";
+import MyDiv1 from "./16/MyDiv1";
 function App() {
 
   return (
@@ -28,7 +29,7 @@ function App() {
       <main className="w-full  flex-grow text-center
       flex flex-col justify-start items-center overflow-y-auto">
         <Routes>
-          <Route path='/' element={<MyClock/>}></Route>
+          <Route path='/' element={<MyDiv1/>}></Route>
           <Route path='/FoodMain' element={<FoodMain/>}></Route>
           <Route path='/BoxOffice' element={<BoxOffice/>}></Route>
           <Route path='/Traffic' element={<Traffic/>}></Route>
